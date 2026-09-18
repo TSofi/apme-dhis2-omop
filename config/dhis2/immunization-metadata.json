@@ -1,0 +1,74 @@
+{
+  "organisationUnits": [
+    { "id": "sp0vGb7cQBw", "name": "Austria", "shortName": "Austria", "openingDate": "2020-01-01" },
+    { "id": "hErIMikUftL", "name": "Vienna", "shortName": "Vienna", "openingDate": "2020-01-01", "parent": { "id": "sp0vGb7cQBw" } },
+    { "id": "vieHC1aaaa1", "name": "Vienna Health Centre 1", "shortName": "Vienna HC 1", "openingDate": "2020-01-01", "parent": { "id": "hErIMikUftL" } },
+    { "id": "vieHC2aaaa2", "name": "Vienna Health Centre 2", "shortName": "Vienna HC 2", "openingDate": "2020-01-01", "parent": { "id": "hErIMikUftL" } }
+  ],
+  "trackedEntityAttributes": [
+    { "id": "attFirstNam", "name": "First name", "shortName": "First name", "valueType": "TEXT", "aggregationType": "NONE", "unique": false, "sharing": { "public": "rwrw----", "external": false } },
+    { "id": "attLastName", "name": "Last name", "shortName": "Last name", "valueType": "TEXT", "aggregationType": "NONE", "unique": false, "sharing": { "public": "rwrw----", "external": false } },
+    { "id": "attBirthDat", "name": "Date of birth", "shortName": "Date of birth", "valueType": "DATE", "aggregationType": "NONE", "unique": false, "sharing": { "public": "rwrw----", "external": false } },
+    { "id": "attSexxxxx1", "name": "Sex", "shortName": "Sex", "valueType": "TEXT", "aggregationType": "NONE", "unique": false, "sharing": { "public": "rwrw----", "external": false } }
+  ],
+  "trackedEntityTypes": [
+    {
+      "id": "tetPersonn1",
+      "name": "Person",
+      "sharing": { "public": "rwrw----", "external": false },
+      "trackedEntityTypeAttributes": [
+        { "trackedEntityAttribute": { "id": "attFirstNam" }, "displayInList": true, "mandatory": true, "searchable": true },
+        { "trackedEntityAttribute": { "id": "attLastName" }, "displayInList": true, "mandatory": true, "searchable": true },
+        { "trackedEntityAttribute": { "id": "attBirthDat" }, "displayInList": true, "mandatory": false, "searchable": false },
+        { "trackedEntityAttribute": { "id": "attSexxxxx1" }, "displayInList": true, "mandatory": false, "searchable": false }
+      ]
+    }
+  ],
+  "dataElements": [
+    { "id": "deVaccineNm", "name": "Vaccine name", "shortName": "Vaccine name", "domainType": "TRACKER", "valueType": "TEXT", "aggregationType": "NONE", "categoryCombo": { "id": "bjDvmb4bfuf" }, "zeroIsSignificant": false, "sharing": { "public": "rwrw----", "external": false } },
+    { "id": "deDoseNumbr", "name": "Dose number", "shortName": "Dose number", "domainType": "TRACKER", "valueType": "INTEGER_POSITIVE", "aggregationType": "NONE", "categoryCombo": { "id": "bjDvmb4bfuf" }, "zeroIsSignificant": false, "sharing": { "public": "rwrw----", "external": false } },
+    { "id": "deAdverseEv", "name": "Adverse event reported", "shortName": "Adverse event", "domainType": "TRACKER", "valueType": "BOOLEAN", "aggregationType": "NONE", "categoryCombo": { "id": "bjDvmb4bfuf" }, "zeroIsSignificant": false, "sharing": { "public": "rwrw----", "external": false } }
+  ],
+  "programs": [
+    {
+      "id": "prgImmuniz1",
+      "name": "Immunization Programme",
+      "shortName": "Immunization",
+      "programType": "WITH_REGISTRATION",
+      "trackedEntityType": { "id": "tetPersonn1" },
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "sharing": { "public": "rwrw----", "external": false },
+      "onlyEnrollOnce": true,
+      "displayIncidentDate": false,
+      "version": 1,
+      "accessLevel": "OPEN",
+      "enrollmentDateLabel": "Enrollment date",
+      "incidentDateLabel": "Incident date",
+      "organisationUnits": [{ "id": "hErIMikUftL" }, { "id": "vieHC1aaaa1" }, { "id": "vieHC2aaaa2" }],
+      "programStages": [{ "id": "psVaccinat1" }],
+      "programTrackedEntityAttributes": [
+        { "id": "pteaFirstNa", "program": { "id": "prgImmuniz1" }, "trackedEntityAttribute": { "id": "attFirstNam" }, "mandatory": true, "searchable": true, "displayInList": true, "sortOrder": 1 },
+        { "id": "pteaLastNam", "program": { "id": "prgImmuniz1" }, "trackedEntityAttribute": { "id": "attLastName" }, "mandatory": true, "searchable": true, "displayInList": true, "sortOrder": 2 },
+        { "id": "pteaBirthDa", "program": { "id": "prgImmuniz1" }, "trackedEntityAttribute": { "id": "attBirthDat" }, "mandatory": false, "searchable": false, "displayInList": true, "sortOrder": 3 },
+        { "id": "pteaSexxxx1", "program": { "id": "prgImmuniz1" }, "trackedEntityAttribute": { "id": "attSexxxxx1" }, "mandatory": false, "searchable": false, "displayInList": true, "sortOrder": 4 }
+      ]
+    }
+  ],
+  "programStages": [
+    {
+      "id": "psVaccinat1",
+      "name": "Vaccination visit",
+      "program": { "id": "prgImmuniz1" },
+      "repeatable": true,
+      "autoGenerateEvent": true,
+      "sortOrder": 1,
+      "minDaysFromStart": 0,
+      "sharing": { "public": "rwrw----", "external": false },
+      "programStageDataElements": [
+        { "id": "psdeVaccine", "programStage": { "id": "psVaccinat1" }, "dataElement": { "id": "deVaccineNm" }, "compulsory": true, "displayInReports": true, "sortOrder": 1 },
+        { "id": "psdeDoseNum", "programStage": { "id": "psVaccinat1" }, "dataElement": { "id": "deDoseNumbr" }, "compulsory": true, "displayInReports": true, "sortOrder": 2 },
+        { "id": "psdeAdverse", "programStage": { "id": "psVaccinat1" }, "dataElement": { "id": "deAdverseEv" }, "compulsory": false, "displayInReports": true, "sortOrder": 3 }
+      ]
+    }
+  ]
+}
