@@ -45,5 +45,5 @@ config/          DHIS2 metadata exports and setup files
 |---|---|
 | Sofia | Database & SQL, tracker program configuration, documentation |
 | Ahmer | Python, data export and ETL pipeline |
-| [Member C] | Setup & infrastructure |
-| [Member D] | Mapping documentation, testing, final report |
+| [Ajmal] | Setup & infrastructure |
+| [Shoeb] | Mapping documentation, testing, final report |
