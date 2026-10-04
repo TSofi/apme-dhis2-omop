@@ -1,0 +1,16 @@
+﻿services:
+  omop-postgres:
+    image: postgres:16-alpine
+    container_name: omop-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: omop
+    ports:
+      - "5433:5432"
+    volumes:
+      - omop_pgdata:/var/lib/postgresql/data
+
+volumes:
+  omop_pgdata:

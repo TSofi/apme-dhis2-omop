@@ -31,7 +31,7 @@
 
 | DHIS2 Data Element | DHIS2 Source Option | Target Concept ID | Standard Concept Name | Vocabulary | OMOP Domain |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `adverse_event` | `Fever` | **43054909** | Pyrexia | SNOMED | Condition |
+| `adverse_event` | `Fever` | **437663** | Fever / Pyrexia | SNOMED | Condition |
 | `adverse_event` | `Headache` | **378253** | Headache | SNOMED | Condition |
 | `adverse_event` | `Fatigue` | **4223659** | Fatigue | SNOMED | Condition |
 | *Type* | Derived | **32817** | EHR encounter record | Type Concept | Observation Type |
@@ -46,5 +46,5 @@
 | DHIS2 Source Level | Source Name | Target Table | Target Primary Key | Target Mapping |
 | :--- | :--- | :--- | :--- | :--- |
 | Country / City | Vienna, Austria | `LOCATION` | `1` | `city = 'Vienna'`, `country_source_value = 'Austria'` |
-| Org Unit 1 | General Hospital Vienna | `CARE_SITE` | `1` | `place_of_service_concept_id = 8756` (Outpatient Hospital) |
-| Org Unit 2 | District Clinic Leopoldstadt | `CARE_SITE` | `2` | `place_of_service_concept_id = 8756` (Outpatient Hospital) |
+| Org Unit 1 | Vienna Health Centre 1 | `CARE_SITE` | `1` | `place_of_service_concept_id = 8756` (Outpatient Hospital) |
+| Org Unit 2 | Vienna Health Centre 2 | `CARE_SITE` | `2` | `place_of_service_concept_id = 8756` (Outpatient Hospital) |

@@ -1,4 +1,4 @@
-﻿"""
+"""
 DHIS2 Tracker to OMOP CDM v5.4 ETL Pipeline (Sprint 2).
 Extracts immunization cohort data via /api/tracker/trackedEntities
 and transforms it into OMOP CDM tables:
@@ -187,7 +187,7 @@ def transform_to_omop(instances):
                     obs_entry = {
                         "observation_id": obs_id_seq,
                         "person_id": person_id_seq,
-                        "observation_concept_id": 43054909,  # Adverse event following immunization
+                        "observation_concept_id": 437663,  # Adverse event following immunization
                         "observation_date": event_date,
                         "observation_datetime": event_datetime,
                         "observation_type_concept_id": 32817,  # EHR

@@ -222,3 +222,12 @@ __marimo__/
 *.patch
 sprint_*/
 omop_output/
+
+.Rhistory
+
+
+.Rhistory
+
+
+.Rhistory
+
