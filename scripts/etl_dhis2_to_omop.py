@@ -82,7 +82,7 @@ def transform_to_omop(instances):
         {
             "care_site_id": meta["id"],
             "care_site_name": meta["name"],
-            "place_of_service_concept_id": 38004207,  # Outpatient Healthcare Facility
+            "place_of_service_concept_id": 8756,  # Outpatient Healthcare Facility
             "location_id": 1,
             "care_site_source_value": uid,
             "place_of_service_source_value": "Health Centre"

@@ -11,7 +11,6 @@ DB_NAME = os.getenv("OMOP_DB_NAME", "omop")
 DB_USER = os.getenv("OMOP_DB_USER", "postgres")
 DB_PASSWORD = os.getenv("OMOP_DB_PASSWORD", "postgres")
 
-# (concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, standard_concept, concept_code, valid_start_date, valid_end_date, invalid_reason)
 STUDY_CONCEPTS = [
     (8507, "MALE", "Gender", "Gender", "Gender", "S", "M", "1970-01-01", "2099-12-31", None),
     (8532, "FEMALE", "Gender", "Gender", "Gender", "S", "F", "1970-01-01", "2099-12-31", None),
@@ -23,13 +22,16 @@ STUDY_CONCEPTS = [
     (378253, "Headache", "Condition", "Clinical Finding", "SNOMED", "S", "25064002", "1970-01-01", "2099-12-31", None),
     (4223659, "Fatigue", "Condition", "Clinical Finding", "SNOMED", "S", "84229001", "1970-01-01", "2099-12-31", None),
     (32817, "EHR encounter record", "Type Concept", "Type Concept", "Concept Class", "S", "OMOP generated", "1970-01-01", "2099-12-31", None),
-    (1147094, "drug_exposure.drug_exposure_id", "Metadata", "Concept", "Concept Class", "S", "OMOP generated", "1970-01-01", "2099-12-31", None)
+    (1147094, "drug_exposure.drug_exposure_id", "Metadata", "Concept", "Concept Class", "S", "OMOP generated", "1970-01-01", "2099-12-31", None),
+    (8756, "Outpatient Hospital", "Visit", "CMS Place of Service", "Place of Service", "S", "22", "1970-01-01", "2099-12-31", None),
+    (4132161, "Oral / Route finding", "Observation", "SNOMED", "Qualifier Value", "S", "260548002", "1970-01-01", "2099-12-31", None),
+    (4181412, "Present", "Observation", "SNOMED", "Qualifier Value", "S", "52101004", "1970-01-01", "2099-12-31", None),
+    (4330442, "Severe", "Observation", "SNOMED", "Qualifier Value", "S", "24484000", "1970-01-01", "2099-12-31", None)
 ]
 
 def load_study_vocabularies():
     conn = psycopg2.connect(host=DB_HOST, port=DB_PORT, dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     cur = conn.cursor()
-    
     cur.execute("SET search_path TO cdm, public;")
     insert_sql = """
         INSERT INTO concept (
