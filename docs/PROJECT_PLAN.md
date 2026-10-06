@@ -55,3 +55,14 @@ Everyone reviews each other's work before a sprint review, and everyone contribu
 | Create the tracker program and its program stages | Sofia |
 | Explore how data can be exported from DHIS2 | Ahmer |
 | Read the OMOP CDM basics (key tables) | Member D |
+
+
+for the next sprint we shopuld come up with the plan how axectly we will analyze data with dhis2
+professor can provide gosting so we can really use app and other people can use
+consider to connect with phone  DHIS2 capture repo look - u should present version that works without internet. 
+dhis2 developer site look.
+
+plus document that shows every step of instalation and process how we did what 
+for example repo o fprocessor repo emr. insatlation prerequsities, docker compost. 
+prepare doc what we done what we will done how we will implement different user cases.  
+setup doker, for second sprint show at least some demo that docker, dhis working
