@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local sprint backups and archives
+*.zip
+*.patch
+sprint_*/
+omop_output/
+
+.Rhistory
+
+
+.Rhistory
+
+
+.Rhistory
+
