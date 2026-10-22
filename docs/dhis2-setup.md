@@ -24,6 +24,28 @@ docker compose down --volumes   # remove everything, including the database
 
 **Versions:** DHIS2 2.40.3, PostgreSQL with PostGIS 14.
 
+### Troubleshooting: port 8080 already in use
+
+Another application on the host may already use port 8080 (for example National Instruments
+services on Windows). The container then fails to start, or the browser opens a different
+application on http://localhost:8080.
+
+Either free the port, or publish DHIS2 on a different host port: in
+`config/dhis2/docker-compose.yml`, in the `reverse_proxy` service, change
+
+```yaml
+published: 8080
+```
+
+to
+
+```yaml
+published: 8081
+```
+
+and open http://localhost:8081 instead. Only the host port changes; inside the container
+DHIS2 keeps listening on 8080.
+
 ## 2. Import the metadata
 
 The full configuration of our use case is stored in
