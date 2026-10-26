@@ -15,7 +15,7 @@ import requests
 import pandas as pd
 
 BASE_URL = os.getenv("DHIS2_BASE_URL", "http://localhost:8080")
-AUTH = (os.getenv("DHIS2_USER", "admin"), os.getenv("DHIS2_PASSWORD", "district"))
+AUTH = (os.getenv("DHIS2_USER", "admin"), os.getenv("DHIS2_PASSWORD", "OmopProject2026!"))
 
 ROOT_ORG_UNIT = "sp0vGb7cQBw"
 PROGRAM_ID = "prgImmuniz1"
