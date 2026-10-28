@@ -2,13 +2,17 @@
 Batch Ingestion Script for DHIS2 Tracker API (Sprint 2).
 Generates a synthetic cohort of patients and posts them in bulk to DHIS2.
 """
+import os
 import sys
 import json
 import requests
 from generate_cohort import generate_cohort
 
 BASE_URL = "http://localhost:8080"
-AUTH = ("admin", "district")
+DHIS2_PW = os.environ.get("DHIS2_PASSWORD")
+if not DHIS2_PW:
+    raise ValueError("DHIS2_PASSWORD environment variable is required.")
+AUTH = (os.getenv("DHIS2_USER", "admin"), DHIS2_PW)
 
 
 def ingest_batch(cohort_size=30):
@@ -50,3 +54,4 @@ def ingest_batch(cohort_size=30):
 
 if __name__ == "__main__":
     ingest_batch(cohort_size=30)
+

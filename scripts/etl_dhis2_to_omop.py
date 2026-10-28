@@ -1,4 +1,4 @@
-"""
+﻿"""
 DHIS2 Tracker to OMOP CDM v5.4 ETL Pipeline (Sprint 2).
 Extracts immunization cohort data via /api/tracker/trackedEntities
 and transforms it into OMOP CDM tables:
@@ -15,7 +15,10 @@ import requests
 import pandas as pd
 
 BASE_URL = os.getenv("DHIS2_BASE_URL", "http://localhost:8080")
-AUTH = (os.getenv("DHIS2_USER", "admin"), os.getenv("DHIS2_PASSWORD", "district"))
+DHIS2_PW = os.environ.get("DHIS2_PASSWORD")
+if not DHIS2_PW:
+    raise ValueError("DHIS2_PASSWORD environment variable is required.")
+AUTH = (os.getenv("DHIS2_USER", "admin"), DHIS2_PW)
 
 ROOT_ORG_UNIT = "sp0vGb7cQBw"
 PROGRAM_ID = "prgImmuniz1"
@@ -243,3 +246,4 @@ def run_etl():
 
 if __name__ == "__main__":
     run_etl()
+
